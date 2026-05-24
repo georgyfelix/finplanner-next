@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --app-bg: #f8fafc;
+  --app-bg-elevated: #ffffff;
+  --app-text: #0f172a;
+  --app-muted: #64748b;
+  --app-border: #e2e8f0;
+  --app-primary: #0f172a;
+  --app-secondary: #334155;
+  --app-accent: #14b8a6;
+  --app-success: #22c55e;
+  --app-warning: #f59e0b;
+  --app-danger: #ef4444;
+}
+
+@theme inline {
+  --color-background: var(--app-bg);
+  --color-foreground: var(--app-text);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+}
+
+.dark {
+  --app-bg: #020617;
+  --app-bg-elevated: #0b1220;
+  --app-text: #e2e8f0;
+  --app-muted: #94a3b8;
+  --app-border: #1e293b;
+  --app-primary: #e2e8f0;
+  --app-secondary: #94a3b8;
+  --app-accent: #14b8a6;
+  --app-success: #22c55e;
+  --app-warning: #f59e0b;
+  --app-danger: #ef4444;
+}
+
+body {
+  background:
+    radial-gradient(1200px 500px at -10% -20%, rgb(20 184 166 / 0.08), transparent),
+    radial-gradient(900px 400px at 110% -10%, rgb(51 65 85 / 0.08), transparent),
+    var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+}
+
+.bg-app-bg {
+  background-color: var(--app-bg);
+}
+
+.text-app-text {
+  color: var(--app-text);
+}
