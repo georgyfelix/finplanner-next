@@ -19,6 +19,13 @@ type Transaction = {
   origin: string;
 };
 
+async function readJsonOrThrow<T>(response: Response): Promise<T> {
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const text = await response.text();
+  if (!text) return [] as T;
+  return JSON.parse(text) as T;
+}
+
 export default function TransactionsPage() {
   const now = new Date();
   const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -56,10 +63,10 @@ export default function TransactionsPage() {
       fetch(`/api/transactions?month=${month}&year=${year}`),
       fetch(`/api/budgets?month=${month}&year=${year}`),
     ]);
-    const accs: Account[] = await accRes.json();
+    const accs: Account[] = await readJsonOrThrow(accRes);
     setAccounts(accs);
-    setTransactions(await txRes.json());
-    setBudgets(await budgetRes.json());
+    setTransactions(await readJsonOrThrow(txRes));
+    setBudgets(await readJsonOrThrow(budgetRes));
     if (accs.length && !form.accountId) setForm(f => ({ ...f, accountId: accs[0].id }));
   }
 
@@ -94,10 +101,10 @@ export default function TransactionsPage() {
         body: JSON.stringify({ transactionId: id, numMonths: copyMonths }),
       });
       if (!res.ok) {
-        const d = await res.json();
+        const d = await readJsonOrThrow<{ error?: string }>(res);
         setError(d.error || 'Failed to copy transaction');
       } else {
-        const result = await res.json();
+        const result = await readJsonOrThrow<{ success: boolean }>(res);
         setCopyId(null);
         setCopyMonths(12);
         await loadAll();

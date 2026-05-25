@@ -1,0 +1,2630 @@
+{
+  "categories": [
+    "KSFE 8000x100",
+    "KSFE 3000x50",
+    "KSFE 10000x50",
+    "Merchants Club Chit",
+    "Misc.",
+    "LIC",
+    "Gold",
+    "Liya Fees Savings",
+    "Travel Savings",
+    "Post Office RD",
+    "SIP",
+    "Stock",
+    "Asianet",
+    "EMI Scooter",
+    "Liya",
+    "Liya Fees Payment",
+    "Fuel",
+    "Travel/Tickets",
+    "Medical",
+    "Netflix",
+    "Youtube Premium",
+    "F1TV",
+    "Spotify Premium",
+    "XBox",
+    "EMI",
+    "Food",
+    "Credit Card",
+    "APY",
+    "Appa",
+    "Amma",
+    "Salary/Income",
+    "For Expenses",
+    "SBI",
+    "Axis",
+    "Federal",
+    "FI"
+  ],
+  "transactions": [
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6200,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - June 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6200,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - July 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6200,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - September 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6200,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - November 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6200,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - December 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6970,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - January 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6970,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - February 2025-2026"
+    },
+    {
+      "category": "KSFE 8000x100",
+      "amount": 6767,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 8000x100 - March 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 2834,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - April 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 2880,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - May 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 2740,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - June 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 2740,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - July 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - September 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - October 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - November 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - December 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - January 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - February 2025-2026"
+    },
+    {
+      "category": "KSFE 3000x50",
+      "amount": 3000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 3000x50 - March 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - April 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9362,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - May 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - June 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - July 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - September 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - November 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - December 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9641,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - January 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - February 2025-2026"
+    },
+    {
+      "category": "KSFE 10000x50",
+      "amount": 9359,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "KSFE 10000x50 - March 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - April 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - May 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - June 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - July 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - August 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - September 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - October 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - November 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - December 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - January 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - February 2025-2026"
+    },
+    {
+      "category": "Merchants Club Chit",
+      "amount": 4000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Merchants Club Chit - March 2025-2026"
+    },
+    {
+      "category": "Misc.",
+      "amount": -6200,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Misc. - April 2025-2026"
+    },
+    {
+      "category": "Misc.",
+      "amount": -6200,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Misc. - May 2025-2026"
+    },
+    {
+      "category": "Misc.",
+      "amount": -6200,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Misc. - June 2025-2026"
+    },
+    {
+      "category": "Misc.",
+      "amount": -18559,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Misc. - September 2025-2026"
+    },
+    {
+      "category": "Misc.",
+      "amount": -15870,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Misc. - November 2025-2026"
+    },
+    {
+      "category": "LIC",
+      "amount": 8256,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "LIC - June 2025-2026"
+    },
+    {
+      "category": "LIC",
+      "amount": 8256,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "LIC - September 2025-2026"
+    },
+    {
+      "category": "LIC",
+      "amount": 8256,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "LIC - February 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 30000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - July 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 10000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - September 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 10000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - October 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 10000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - November 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 20000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - December 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 10000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - January 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 17600,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - February 2025-2026"
+    },
+    {
+      "category": "Gold",
+      "amount": 20000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Gold - March 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - April 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - May 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - June 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - July 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - August 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - September 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - October 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - November 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - December 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - January 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - February 2025-2026"
+    },
+    {
+      "category": "Post Office RD",
+      "amount": 1500,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Post Office RD - March 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - April 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - May 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - June 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - July 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - August 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - September 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - October 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - November 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - December 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - January 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - February 2025-2026"
+    },
+    {
+      "category": "SIP",
+      "amount": 6000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SIP - March 2025-2026"
+    },
+    {
+      "category": "Asianet",
+      "amount": -2993,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Asianet - July 2025-2026"
+    },
+    {
+      "category": "Asianet",
+      "amount": -2338,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Asianet - October 2025-2026"
+    },
+    {
+      "category": "Asianet",
+      "amount": -2390,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Asianet - January 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3112,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - April 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3112,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - May 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3112,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - June 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3112,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - July 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3112,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - August 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3112,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - September 2025-2026"
+    },
+    {
+      "category": "EMI Scooter",
+      "amount": -3040,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI Scooter - October 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -8000,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - April 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - May 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - June 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - July 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - August 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - September 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - October 2025-2026"
+    },
+    {
+      "category": "Liya",
+      "amount": -10000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Liya - November 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - April 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -2000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - May 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - June 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - July 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - August 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - September 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - October 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - November 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - December 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - January 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -3000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - February 2025-2026"
+    },
+    {
+      "category": "Fuel",
+      "amount": -4000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Fuel - March 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - April 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - May 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - June 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - July 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - August 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - September 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - October 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - November 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - December 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - January 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - February 2025-2026"
+    },
+    {
+      "category": "Travel/Tickets",
+      "amount": -3000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Travel/Tickets - March 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - May 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - June 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - July 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - September 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - October 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - November 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - December 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - January 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - February 2025-2026"
+    },
+    {
+      "category": "Medical",
+      "amount": -5000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Medical - March 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - April 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - May 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - June 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - July 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - August 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - September 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - October 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - November 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - December 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - January 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - February 2025-2026"
+    },
+    {
+      "category": "Youtube Premium",
+      "amount": -299,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Youtube Premium - March 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - July 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - August 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - September 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - October 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - November 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - December 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - January 2025-2026"
+    },
+    {
+      "category": "F1TV",
+      "amount": -299,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "F1TV - March 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - April 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - May 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - June 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - July 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - August 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - September 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - October 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - November 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - December 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - January 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - February 2025-2026"
+    },
+    {
+      "category": "Spotify Premium",
+      "amount": -179,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Spotify Premium - March 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -20133,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - May 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -22148,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - June 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -12130,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - September 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -48046,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - October 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -33212,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - November 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -38671,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - December 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -55577,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - January 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -7554,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - February 2025-2026"
+    },
+    {
+      "category": "EMI",
+      "amount": -16748,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "EMI - March 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - April 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - May 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - June 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - July 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - August 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - September 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - October 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - November 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - December 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - January 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - February 2025-2026"
+    },
+    {
+      "category": "Food",
+      "amount": -2000,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Food - March 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -14870,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - April 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -5540,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - May 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -26248,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - June 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -21742,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - July 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -50325,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - August 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -12709,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - September 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -10800,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - December 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -10064,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - January 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -8741,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - February 2025-2026"
+    },
+    {
+      "category": "Credit Card",
+      "amount": -9711,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Credit Card - March 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - April 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - May 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - June 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - July 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - August 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - September 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - October 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - November 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - December 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - January 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - February 2025-2026"
+    },
+    {
+      "category": "APY",
+      "amount": -327,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "APY - March 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - April 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - May 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - June 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - July 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - August 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - September 2025-2026"
+    },
+    {
+      "category": "Appa",
+      "amount": -4300,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Appa - October 2025-2026"
+    },
+    {
+      "category": "Amma",
+      "amount": -6400,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Amma - September 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -96967,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - April 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -109839,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - May 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -120946,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - June 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -120946,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - July 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -144396,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - August 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -119239,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - September 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -120489,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - October 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -127929,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - November 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -129077,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - December 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -127828,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - January 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -131550,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - February 2025-2026"
+    },
+    {
+      "category": "Salary/Income",
+      "amount": -116420,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Salary/Income - March 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -35587,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - April 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -30607,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - May 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -4678,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - June 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -12496,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - July 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -63655,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - August 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -10010,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - September 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -21761,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - October 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -13684,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - November 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -14443,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - December 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -2082,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - January 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -43765,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - February 2025-2026"
+    },
+    {
+      "category": "For Expenses",
+      "amount": -24231,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "For Expenses - March 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -1530,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - April 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -4177,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - May 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -12768,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - June 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -1723,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - July 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -9263,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - August 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -1381,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - October 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -1084,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - November 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -3862,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - December 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -625,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - January 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -17226,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - February 2025-2026"
+    },
+    {
+      "category": "SBI",
+      "amount": -3196,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "SBI - March 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1212,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - April 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1522,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - May 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1322,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - June 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1358,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - July 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1358,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - August 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -6358,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - September 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -3303,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - October 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1762,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - November 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -963,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - December 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -594,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - January 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -11117,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - February 2025-2026"
+    },
+    {
+      "category": "Axis",
+      "amount": -1475,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Axis - March 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -740,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - April 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -746,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - May 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -746,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - June 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -654,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - July 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -654,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - August 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -652,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - September 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -245,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - October 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -245,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - November 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -247,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - December 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -247,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - January 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -247,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - February 2025-2026"
+    },
+    {
+      "category": "Federal",
+      "amount": -249,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "Federal - March 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -1415,
+      "date": "2025-04-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - April 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -5210,
+      "date": "2025-05-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - May 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -9857,
+      "date": "2025-06-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - June 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -14891,
+      "date": "2025-07-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - July 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -14891,
+      "date": "2025-08-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - August 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -10012,
+      "date": "2025-09-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - September 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -8210,
+      "date": "2025-10-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - October 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -10604,
+      "date": "2025-11-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - November 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -20449,
+      "date": "2025-12-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - December 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -6614,
+      "date": "2026-01-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - January 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -10720,
+      "date": "2026-02-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - February 2025-2026"
+    },
+    {
+      "category": "FI",
+      "amount": -7106,
+      "date": "2026-03-15",
+      "isPlanned": true,
+      "origin": "planned",
+      "accountId": null,
+      "description": "FI - March 2025-2026"
+    }
+  ],
+  "summary": {
+    "totalTransactions": 287,
+    "totalSavings": 468144,
+    "totalExpenses": 2746438
+  }
+}
