@@ -88,153 +88,199 @@ export default async function DashboardPage() {
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <div className="bg-white rounded-xl border p-5 shadow-sm">
-          <p className="text-sm text-gray-500">Accounts</p>
-          <p className="text-3xl font-bold mt-1">{userAccounts.length}</p>
-          <Link href="/dashboard/accounts" className="text-xs text-indigo-600 hover:underline mt-2 inline-block">Manage →</Link>
-        </div>
-        <div className="bg-white rounded-xl border p-5 shadow-sm">
-          <p className="text-sm text-gray-500">Total Balance</p>
-          <p className={`text-3xl font-bold mt-1 ${totalVisibleBalance < 0 ? 'text-red-600' : 'text-gray-900'}`}>
-            {formatMoney(totalVisibleBalance, settings.currency, settings.locale)}
-          </p>
-          {visibleAccounts.length !== userAccounts.length && (
-            <p className="text-xs text-amber-600 mt-2">Hidden accounts are excluded here.</p>
-          )}
-          <Link href="/dashboard/accounts" className="text-xs text-indigo-600 hover:underline mt-2 inline-block">View accounts →</Link>
-        </div>
-        <div className="bg-white rounded-xl border p-5 shadow-sm">
-          <p className="text-sm text-gray-500">Planned remaining net</p>
-          <p className={`text-3xl font-bold mt-1 ${plannedNetThisMonth < 0 ? 'text-red-500' : plannedNetThisMonth > 0 ? 'text-green-600' : 'text-gray-900'}`}>
-            {plannedNetThisMonth >= 0 ? '+' : ''}{formatMoney(Math.abs(plannedNetThisMonth), settings.currency, settings.locale)}
-          </p>
-          <Link href="/dashboard/plan" className="text-xs text-indigo-600 hover:underline mt-2 inline-block">View plan →</Link>
-        </div>
-        <div className="bg-white rounded-xl border p-5 shadow-sm">
-          <p className="text-sm text-gray-500">Projected end of {MONTHS[month - 1]}</p>
-          <p className={`text-3xl font-bold mt-1 ${projectedEndOfMonth < 0 ? 'text-red-600' : 'text-green-700'}`}>
-            {formatMoney(projectedEndOfMonth, settings.currency, settings.locale)}
-          </p>
-          <Link href="/dashboard/plan" className="text-xs text-indigo-600 hover:underline mt-2 inline-block">Plan expenses →</Link>
-        </div>
-        <div className="bg-white rounded-xl border p-5 shadow-sm">
-          <p className="text-sm text-gray-500">Unplanned Expenses ({MONTHS[month - 1]})</p>
-          <p className="text-3xl font-bold mt-1 text-red-600">
-            {formatMoney(unplannedExpenses, settings.currency, settings.locale)}
-          </p>
-          <p className="text-xs text-gray-400 mt-2">Manual actual expenses not from planned items.</p>
+    <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+      {/* Header */}
+      <div className="flex items-baseline justify-between">
+        <div>
+          <h1 className="text-4xl font-bold text-slate-900">Dashboard</h1>
+          <p className="text-slate-600 mt-1">{MONTHS[month - 1]} {year} Overview</p>
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <h2 className="font-semibold text-gray-800">Monthly Roll-Forward</h2>
-          <Link href="/dashboard/plan" className="text-sm text-indigo-600 hover:underline">View Monthly Plan →</Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-sm">
-          <div>
-            <p className="text-gray-500">Opening (dashboard accounts)</p>
-            <p className="font-semibold">{formatMoney(totalMonthlyOpening, settings.currency, settings.locale)}</p>
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border border-blue-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-blue-700">Accounts</p>
+              <p className="text-3xl font-bold text-blue-900 mt-2">{userAccounts.length}</p>
+            </div>
+            <div className="text-3xl">💰</div>
           </div>
-          <div>
-            <p className="text-gray-500">Closing (dashboard accounts)</p>
-            <p className={`font-semibold ${totalMonthlyClosing < 0 ? 'text-red-600' : 'text-green-700'}`}>
+          <Link href="/dashboard/accounts" className="text-xs font-medium text-blue-600 hover:text-blue-700 mt-3 inline-flex items-center gap-1">Manage <span>→</span></Link>
+        </div>
+
+        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg border border-emerald-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-emerald-700">Total Balance</p>
+              <p className={`text-3xl font-bold mt-2 ${totalVisibleBalance < 0 ? 'text-red-600' : 'text-emerald-900'}`}>
+                {formatMoney(totalVisibleBalance, settings.currency, settings.locale)}
+              </p>
+            </div>
+            <div className="text-3xl">🏦</div>
+          </div>
+          {visibleAccounts.length !== userAccounts.length && (
+            <p className="text-xs text-amber-700 mt-2 font-medium">📌 Hidden accounts excluded</p>
+          )}
+        </div>
+
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg border border-purple-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-purple-700">Planned Net</p>
+              <p className={`text-3xl font-bold mt-2 ${plannedNetThisMonth < 0 ? 'text-red-600' : plannedNetThisMonth > 0 ? 'text-green-600' : 'text-slate-900'}`}>
+                {plannedNetThisMonth >= 0 ? '+' : ''}{formatMoney(Math.abs(plannedNetThisMonth), settings.currency, settings.locale)}
+              </p>
+            </div>
+            <div className="text-3xl">📊</div>
+          </div>
+          <Link href="/dashboard/plan" className="text-xs font-medium text-purple-600 hover:text-purple-700 mt-3 inline-flex items-center gap-1">Plan <span>→</span></Link>
+        </div>
+
+        <div className={`bg-gradient-to-br rounded-lg border p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full ${projectedEndOfMonth < 0 ? 'from-red-50 to-red-100 border-red-200' : 'from-green-50 to-green-100 border-green-200'}`}>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className={`text-sm font-medium ${projectedEndOfMonth < 0 ? 'text-red-700' : 'text-green-700'}`}>Projected End</p>
+              <p className={`text-3xl font-bold mt-2 ${projectedEndOfMonth < 0 ? 'text-red-600' : 'text-green-700'}`}>
+                {formatMoney(projectedEndOfMonth, settings.currency, settings.locale)}
+              </p>
+            </div>
+            <div className="text-3xl">{projectedEndOfMonth < 0 ? '⚠️' : '✅'}</div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg border border-orange-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-orange-700">Unplanned</p>
+              <p className="text-3xl font-bold text-orange-600 mt-2">
+                {formatMoney(unplannedExpenses, settings.currency, settings.locale)}
+              </p>
+              <p className="text-xs text-orange-600 mt-1">Manual expenses</p>
+            </div>
+            <div className="text-3xl">🎲</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg border border-slate-200 p-6 shadow-sm">
+        <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
+          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">📅 Monthly Roll-Forward</h2>
+          <Link href="/dashboard/plan" className="text-sm font-medium text-slate-600 hover:text-slate-900 inline-flex items-center gap-1">View Plan <span>→</span></Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-white rounded-lg p-4 border border-slate-100">
+            <p className="text-sm font-medium text-slate-600">Opening Balance</p>
+            <p className="text-2xl font-bold text-slate-900 mt-2">{formatMoney(totalMonthlyOpening, settings.currency, settings.locale)}</p>
+            <p className="text-xs text-slate-500 mt-1">Dashboard accounts</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-slate-100">
+            <p className="text-sm font-medium text-slate-600">Projected Closing</p>
+            <p className={`text-2xl font-bold mt-2 ${totalMonthlyClosing < 0 ? 'text-red-600' : 'text-emerald-600'}`}>
               {formatMoney(totalMonthlyClosing, settings.currency, settings.locale)}
             </p>
+            <p className="text-xs text-slate-500 mt-1">After planned outflows</p>
           </div>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Planned income transactions are used automatically for roll-forward.</p>
+        <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded text-xs text-blue-700">
+          ℹ️ Income is rolled forward automatically. Outflows are deducted.
+        </div>
       </div>
 
       {/* Planned vs Budgets */}
       {plannedThisMonth.length > 0 && (
-        <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-5">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-semibold text-indigo-800">
-              {plannedThisMonth.length} planned transaction{plannedThisMonth.length !== 1 ? 's' : ''} in {MONTHS[month - 1]}
+        <div className="bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200 rounded-lg p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-indigo-900 flex items-center gap-2">
+              📌 {plannedThisMonth.length} Planned Transaction{plannedThisMonth.length !== 1 ? 's' : ''} in {MONTHS[month - 1]}
             </h2>
-            <Link href="/dashboard/plan" className="text-sm text-indigo-600 hover:underline font-medium">Manage plan →</Link>
+            <Link href="/dashboard/plan" className="text-sm font-medium text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-1">Edit <span>→</span></Link>
           </div>
-          <ul className="space-y-1">
-            {plannedThisMonth.slice(0, 3).map(tx => (
-              <li key={tx.id} className="text-sm flex justify-between">
-                <span className="text-indigo-700">{tx.category} · {tx.date}</span>
-                <span className={normalizeAmount(tx) < 0 ? 'text-red-600 font-medium' : 'text-green-700 font-medium'}>
-                  {normalizeAmount(tx) >= 0 ? '+' : ''}{formatMoney(Math.abs(normalizeAmount(tx)), settings.currency, settings.locale)}
+          <div className="bg-white rounded-lg divide-y">
+            {plannedThisMonth.slice(0, 5).map((tx, idx) => (
+              <div key={tx.id} className="p-4 flex items-center justify-between hover:bg-indigo-50 transition">
+                <div className="flex-1">
+                  <p className="font-medium text-slate-900">{tx.category}</p>
+                  <p className="text-xs text-slate-500">{new Date(tx.date).toLocaleDateString()}</p>
+                </div>
+                <span className={`font-bold text-lg ${normalizeAmount(tx) < 0 ? 'text-red-600' : 'text-green-600'}`}>
+                  {normalizeAmount(tx) >= 0 ? '+' : '-'}{formatMoney(Math.abs(normalizeAmount(tx)), settings.currency, settings.locale)}
                 </span>
-              </li>
+              </div>
             ))}
-            {plannedThisMonth.length > 3 && (
-              <li className="text-xs text-indigo-400 mt-1">+{plannedThisMonth.length - 3} more…</li>
-            )}
-          </ul>
+          </div>
+          {plannedThisMonth.length > 5 && (
+            <p className="text-sm text-indigo-600 font-medium mt-3">+{plannedThisMonth.length - 5} more transactions…</p>
+          )}
         </div>
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Transactions */}
-        <div className="bg-white rounded-xl border shadow-sm">
-          <div className="p-5 border-b flex items-center justify-between">
-            <h2 className="font-semibold">Recent Transactions</h2>
-            <Link href="/dashboard/transactions" className="text-sm text-indigo-600 hover:underline">View all</Link>
+        <div className="bg-white rounded-lg border shadow-sm overflow-hidden min-h-[220px]">
+          <div className="p-5 border-b bg-gradient-to-r from-slate-50 to-slate-100 flex items-center justify-between">
+            <h2 className="font-bold text-slate-900 flex items-center gap-2">💳 Recent Transactions</h2>
+            <Link href="/dashboard/transactions" className="text-sm font-medium text-slate-600 hover:text-slate-900">View all</Link>
           </div>
           {recentActual.length === 0 ? (
-            <p className="p-5 text-gray-400 text-sm">No transactions yet.</p>
+            <div className="p-8 text-center">
+              <p className="text-slate-400 text-sm">No transactions yet. <Link href="/dashboard/transactions" className="text-indigo-600 font-medium hover:underline">Add one →</Link></p>
+            </div>
           ) : (
-            <ul className="divide-y">
+            <div className="divide-y">
               {recentActual.map((tx) => (
-                <li key={tx.id} className="p-4 flex items-center justify-between">
-                  <div>
-                    <p className="font-medium text-sm">{tx.category}</p>
-                    <p className="text-xs text-gray-400">{tx.date}</p>
+                <div key={tx.id} className="p-4 hover:bg-slate-50 transition flex items-center justify-between">
+                  <div className="flex-1">
+                    <p className="font-medium text-slate-900">{tx.category}</p>
+                    <p className="text-xs text-slate-500">{new Date(tx.date).toLocaleDateString()}</p>
                   </div>
-                  <span className={`font-semibold text-sm ${normalizeAmount(tx) < 0 ? 'text-red-500' : 'text-green-600'}`}>
-                    {normalizeAmount(tx) >= 0 ? '+' : ''}{formatMoney(Math.abs(normalizeAmount(tx)), settings.currency, settings.locale)}
+                  <span className={`font-bold text-lg ${normalizeAmount(tx) < 0 ? 'text-red-600' : 'text-green-600'}`}>
+                    {normalizeAmount(tx) >= 0 ? '+' : '-'}{formatMoney(Math.abs(normalizeAmount(tx)), settings.currency, settings.locale)}
                   </span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </div>
 
         {/* Active Budgets */}
-        <div className="bg-white rounded-xl border shadow-sm">
-          <div className="p-5 border-b flex items-center justify-between">
-            <h2 className="font-semibold">Budgets — {MONTHS[month - 1]} {year}</h2>
-            <Link href="/dashboard/budgets" className="text-sm text-indigo-600 hover:underline">Manage</Link>
+        <div className="bg-white rounded-lg border shadow-sm overflow-hidden min-h-[220px]">
+          <div className="p-5 border-b bg-gradient-to-r from-slate-50 to-slate-100 flex items-center justify-between">
+            <h2 className="font-bold text-slate-900 flex items-center gap-2">📈 Budgets • {MONTHS[month - 1]} {year}</h2>
+            <Link href="/dashboard/budgets" className="text-sm font-medium text-slate-600 hover:text-slate-900">Manage</Link>
           </div>
           {monthBudgets.filter(b => b.month === month && b.year === year).length === 0 ? (
-            <p className="p-5 text-gray-400 text-sm">No budgets set for this month.</p>
+            <div className="p-8 text-center">
+              <p className="text-slate-400 text-sm">No budgets set yet. <Link href="/dashboard/budgets" className="text-indigo-600 font-medium hover:underline">Create one →</Link></p>
+            </div>
           ) : (
-            <ul className="divide-y">
+            <div className="divide-y">
               {monthBudgets.filter(b => b.month === month && b.year === year).map(b => {
                 const spent = actualTxs
                   .filter(t => t.category === b.category && new Date(t.date).getMonth() + 1 === month)
                   .reduce((s, t) => s + Math.abs(normalizeAmount(t)), 0);
                 const pct = Math.min(100, (spent / Number(b.limit)) * 100);
+                const isOverBudget = spent > Number(b.limit);
                 return (
-                  <li key={b.id} className="p-4">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="font-medium">{b.category}</span>
-                      <span className={spent > Number(b.limit) ? 'text-red-500 font-medium' : 'text-gray-600'}>
-                        {formatMoney(spent, settings.currency, settings.locale)} / {formatMoney(Number(b.limit), settings.currency, settings.locale)}
+                  <div key={b.id} className="p-4 hover:bg-slate-50 transition">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium text-slate-900">{b.category}</span>
+                      <span className={`font-bold ${isOverBudget ? 'text-red-600 text-lg' : 'text-slate-700'}`}>
+                        {formatMoney(spent, settings.currency, settings.locale)} <span className="text-slate-400 font-normal">/ {formatMoney(Number(b.limit), settings.currency, settings.locale)}</span>
                       </span>
                     </div>
-                    <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div className={`h-2.5 rounded-full overflow-hidden transition ${pct >= 100 ? 'bg-red-100' : pct >= 80 ? 'bg-amber-100' : 'bg-indigo-100'}`}>
                       <div
-                        className={`h-full rounded-full transition-all ${pct >= 100 ? 'bg-red-500' : pct >= 80 ? 'bg-amber-400' : 'bg-indigo-500'}`}
+                        className={`h-full rounded-full transition-all ${pct >= 100 ? 'bg-red-500' : pct >= 80 ? 'bg-amber-500' : 'bg-indigo-500'}`}
                         style={{ width: `${pct}%` }}
                       />
                     </div>
-                  </li>
+                    <p className="text-xs text-slate-500 mt-1">{Math.round(pct)}% spent</p>
+                  </div>
                 );
               })}
-            </ul>
+            </div>
           )}
         </div>
       </div>

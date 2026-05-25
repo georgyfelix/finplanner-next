@@ -7,6 +7,13 @@ import ConfirmModal from '@/app/components/ConfirmModal';
 
 type Budget = { id: string; category: string; limit: string; month: number; year: number };
 
+async function readJsonOrThrow<T>(response: Response): Promise<T> {
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const text = await response.text();
+  if (!text) return [] as T;
+  return JSON.parse(text) as T;
+}
+
 export default function BudgetsPage() {
   const now = new Date();
   const [budgets, setBudgets] = useState<Budget[]>([]);
@@ -21,7 +28,7 @@ export default function BudgetsPage() {
 
   async function load() {
     const res = await fetch(`/api/budgets?month=${filterMonth}&year=${filterYear}`);
-    setBudgets(await res.json());
+    setBudgets(await readJsonOrThrow(res));
   }
 
   useEffect(() => { load(); }, [filterMonth, filterYear]); // eslint-disable-line react-hooks/exhaustive-deps

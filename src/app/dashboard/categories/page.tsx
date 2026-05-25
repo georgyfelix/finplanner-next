@@ -14,6 +14,13 @@ const TYPE_LABELS: Record<string, { label: string; color: string }> = {
   saving:  { label: 'Saving / Investment', color: 'bg-blue-100 text-blue-700' },
 };
 
+async function readJsonOrThrow<T>(response: Response): Promise<T> {
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const text = await response.text();
+  if (!text) return [] as T;
+  return JSON.parse(text) as T;
+}
+
 export default function CategoriesPage() {
   type ConfirmState =
     | { kind: 'delete'; id: string }
@@ -28,7 +35,7 @@ export default function CategoriesPage() {
 
   const load = useCallback(async () => {
     const res = await fetch('/api/categories');
-    setCats(await res.json());
+    setCats(await readJsonOrThrow(res));
   }, []);
 
   useEffect(() => { load(); }, [load]);

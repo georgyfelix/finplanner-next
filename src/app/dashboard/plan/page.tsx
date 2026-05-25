@@ -28,6 +28,13 @@ type MonthlyAccountBalance = {
 type Category = { id: string; name: string; type: string };
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+async function readJsonOrThrow<T>(response: Response): Promise<T> {
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const text = await response.text();
+  if (!text) return [] as T;
+  return JSON.parse(text) as T;
+}
+
 export default function PlanPage() {
   const now = new Date();
   const [month, setMonth] = useState(now.getMonth() + 1);
@@ -54,10 +61,10 @@ export default function PlanPage() {
       fetch('/api/categories'),
       fetch('/api/transactions'),
     ]);
-    const accs: Account[] = await accRes.json();
-    const monthlyAccRows: MonthlyAccountBalance[] = await monthlyAccRes.json();
-    const catRows: Category[] = await catRes.json();
-    const txs: Transaction[] = await txRes.json();
+    const accs: Account[] = await readJsonOrThrow(accRes);
+    const monthlyAccRows: MonthlyAccountBalance[] = await readJsonOrThrow(monthlyAccRes);
+    const catRows: Category[] = await readJsonOrThrow(catRes);
+    const txs: Transaction[] = await readJsonOrThrow(txRes);
     setAccounts(accs);
     setMonthlyAccountBalances(monthlyAccRows);
     setCategories(catRows);
