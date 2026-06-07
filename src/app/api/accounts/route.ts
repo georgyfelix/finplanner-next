@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { accounts } from '@/lib/db/schema';
+import { accounts, transactions, categories } from '@/lib/db/schema';
 import { eq, and } from 'drizzle-orm';
 
 export async function GET() {

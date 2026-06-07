@@ -180,14 +180,14 @@ export default function TransactionsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
+      <div className="bg-background rounded-xl border p-5 shadow-sm">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
             <h1 className="text-2xl font-bold">Transactions</h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-muted mt-1">
               Add actual or planned transactions. Planned items can be settled later with final amount and account.
             </p>
-            <p className="text-xs text-gray-400 mt-1">Display currency: {settings?.currency ?? 'USD'}</p>
+            <p className="text-xs text-muted mt-1">Display currency: {settings?.currency ?? 'USD'}</p>
           </div>
           <div className="flex items-center gap-2">
             <select
@@ -208,7 +208,7 @@ export default function TransactionsPage() {
       </div>
 
       {plannedItems.length > 0 && (
-        <div className="bg-white rounded-xl border shadow-sm">
+        <div className="bg-background rounded-xl border shadow-sm">
           <div className="p-4 border-b bg-indigo-50 flex items-center justify-between">
             <h2 className="font-semibold text-sm text-indigo-800">Pending Planned Items ({MONTHS[month - 1]} {year})</h2>
             <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">
@@ -220,7 +220,7 @@ export default function TransactionsPage() {
               <li key={tx.id} className="p-4 flex items-center justify-between">
                 <div>
                   <p className="font-medium text-sm">{tx.category}</p>
-                  <p className="text-xs text-gray-400">Planned date: {tx.date}</p>
+                  <p className="text-xs text-muted">Planned date: {tx.date}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className={`font-semibold text-sm ${normalizeAmount(tx) < 0 ? 'text-red-500' : 'text-green-600'}`}>
@@ -228,13 +228,13 @@ export default function TransactionsPage() {
                   </span>
                   <button
                     onClick={() => setCopyId(tx.id)}
-                    className="px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition active:scale-[0.99]"
+                    className="px-3 py-1.5 rounded-lg border border-border bg-background-elevated hover:bg-background-elevated text-foreground text-xs font-semibold transition active:scale-[0.99]"
                   >
                     📋 Copy
                   </button>
                   <button
                     onClick={() => startSettle(tx)}
-                    className="px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition active:scale-[0.99]"
+                    className="px-3 py-1.5 rounded-lg border border-border bg-background-elevated hover:bg-background-elevated text-foreground text-xs font-semibold transition active:scale-[0.99]"
                   >
                     ✔ Settle
                   </button>
@@ -246,21 +246,21 @@ export default function TransactionsPage() {
       )}
 
       {budgets.length > 0 && (
-        <div className="bg-white rounded-xl border shadow-sm">
-          <div className="p-4 border-b bg-gray-50">
-            <h2 className="font-semibold text-sm text-gray-700">Budget Categories ({MONTHS[month - 1]} {year})</h2>
-            <p className="text-xs text-gray-400 mt-0.5">Budgets are category limits, not payable items. Use a category below to log an actual transaction.</p>
+        <div className="bg-background rounded-xl border shadow-sm">
+          <div className="p-4 border-b bg-background-elevated">
+            <h2 className="font-semibold text-sm text-foreground">Budget Categories ({MONTHS[month - 1]} {year})</h2>
+            <p className="text-xs text-muted mt-0.5">Budgets are category limits, not payable items. Use a category below to log an actual transaction.</p>
           </div>
           <ul className="divide-y">
             {budgets.map(b => (
               <li key={b.id} className="p-4 flex items-center justify-between">
                 <div>
                   <p className="font-medium text-sm">{b.category}</p>
-                  <p className="text-xs text-gray-400">Limit: {formatMoney(Number(b.limit))}</p>
+                  <p className="text-xs text-muted">Limit: {formatMoney(Number(b.limit))}</p>
                 </div>
                 <button
                   onClick={() => fillCategoryFromBudget(b.category)}
-                  className="px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition active:scale-[0.99]"
+                  className="px-3 py-1.5 rounded-lg border border-border bg-background-elevated hover:bg-background-elevated text-foreground text-xs font-semibold transition active:scale-[0.99]"
                 >
                   ⤴ Use in form
                 </button>
@@ -270,9 +270,9 @@ export default function TransactionsPage() {
         </div>
       )}
 
-      <form onSubmit={handleCreate} className="bg-white rounded-xl border p-5 shadow-sm space-y-3">
+      <form onSubmit={handleCreate} className="bg-background rounded-xl border p-5 shadow-sm space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="font-semibold text-sm text-gray-700">Add Transaction</h2>
+          <h2 className="font-semibold text-sm text-foreground">Add Transaction</h2>
           <label className="flex items-center gap-2 text-sm col-span-1">
             <input type="checkbox" checked={form.isPlanned} onChange={e => setForm(f => ({ ...f, isPlanned: e.target.checked }))} />
             Planned
@@ -290,7 +290,7 @@ export default function TransactionsPage() {
               {accounts.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
             </select>
           ) : (
-            <div className="border rounded-lg px-3 py-2 text-sm text-gray-500 bg-gray-50">No account required for planned item</div>
+            <div className="border rounded-lg px-3 py-2 text-sm text-muted bg-background-elevated">No account required for planned item</div>
           )}
           <input
             type="number" step="0.01" placeholder="Amount (sign auto-set by category)"
@@ -312,15 +312,15 @@ export default function TransactionsPage() {
       </form>
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      <div className="bg-white rounded-xl border shadow-sm divide-y">
+      <div className="bg-background rounded-xl border shadow-sm divide-y">
         {actualItems.length === 0 ? (
-          <p className="p-5 text-gray-400 text-sm">No transactions for {MONTHS[month - 1]} {year}.</p>
+          <p className="p-5 text-muted text-sm">No transactions for {MONTHS[month - 1]} {year}.</p>
         ) : (
           actualItems.map(tx => (
             <div key={tx.id} className="p-4 flex items-center justify-between">
               <div>
                 <p className="font-medium text-sm">{tx.category}</p>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-muted">
                   {tx.accountId ? accountName(tx.accountId) : 'No account'} · {tx.date}
                   {tx.origin === 'planned' && !tx.isPlanned ? ' · settled from plan' : ''}
                 </p>
@@ -350,10 +350,10 @@ export default function TransactionsPage() {
       {editId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <button type="button" aria-label="Close" className="absolute inset-0 bg-black/40" onClick={() => setEditId(null)} />
-          <div className="relative w-full max-w-lg bg-white rounded-2xl border shadow-2xl p-6 space-y-4">
+          <div className="relative w-full max-w-lg bg-background rounded-2xl border shadow-2xl p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-base text-gray-800">Edit Transaction</h2>
-              <button onClick={() => setEditId(null)} className="text-sm text-gray-500 hover:text-gray-700">Close</button>
+              <h2 className="font-semibold text-base text-foreground">Edit Transaction</h2>
+              <button onClick={() => setEditId(null)} className="text-sm text-muted hover:text-foreground">Close</button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <select
@@ -384,7 +384,7 @@ export default function TransactionsPage() {
               />
             </div>
             <div className="flex items-center justify-end gap-2">
-              <button onClick={() => setEditId(null)} className="px-3 py-2 rounded-lg text-sm border border-gray-200 text-gray-600 hover:bg-gray-50 transition active:scale-[0.99]">Cancel</button>
+              <button onClick={() => setEditId(null)} className="px-3 py-2 rounded-lg text-sm border border-border text-muted hover:bg-background-elevated transition active:scale-[0.99]">Cancel</button>
               <button onClick={() => handleEdit(editId)} className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-indigo-700 active:scale-[0.99]">Save Changes</button>
             </div>
           </div>
@@ -399,12 +399,12 @@ export default function TransactionsPage() {
             className="absolute inset-0 bg-black/40"
             onClick={() => setSettleId(null)}
           />
-          <div className="relative w-full max-w-2xl bg-white rounded-2xl border shadow-2xl p-6 space-y-4">
+          <div className="relative w-full max-w-2xl bg-background rounded-2xl border shadow-2xl p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-base text-gray-800">Settle Planned Transaction</h2>
-              <button onClick={() => setSettleId(null)} className="text-sm text-gray-500 hover:text-gray-700">Close</button>
+              <h2 className="font-semibold text-base text-foreground">Settle Planned Transaction</h2>
+              <button onClick={() => setSettleId(null)} className="text-sm text-muted hover:text-foreground">Close</button>
             </div>
-            <p className="text-xs text-gray-400">Select account and update final amount/category/date if it changed.</p>
+            <p className="text-xs text-muted">Select account and update final amount/category/date if it changed.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <select
@@ -440,7 +440,7 @@ export default function TransactionsPage() {
             </div>
 
             <div className="flex items-center justify-end gap-2">
-              <button onClick={() => setSettleId(null)} className="px-3 py-2 rounded-lg text-sm border border-gray-200 text-gray-600 hover:bg-gray-50 transition active:scale-[0.99]">
+              <button onClick={() => setSettleId(null)} className="px-3 py-2 rounded-lg text-sm border border-border text-muted hover:bg-background-elevated transition active:scale-[0.99]">
                 Cancel
               </button>
               <button onClick={() => handleSettle(settleId)} className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-indigo-700 active:scale-[0.99]">
@@ -459,18 +459,18 @@ export default function TransactionsPage() {
             className="absolute inset-0 bg-black/40"
             onClick={() => setCopyId(null)}
           />
-          <div className="relative w-full max-w-md bg-white rounded-2xl border shadow-2xl p-6 space-y-4">
+          <div className="relative w-full max-w-md bg-background rounded-2xl border shadow-2xl p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-base text-gray-800">📋 Copy Across Months</h2>
-              <button onClick={() => setCopyId(null)} className="text-sm text-gray-500 hover:text-gray-700">Close</button>
+              <h2 className="font-semibold text-base text-foreground">📋 Copy Across Months</h2>
+              <button onClick={() => setCopyId(null)} className="text-sm text-muted hover:text-foreground">Close</button>
             </div>
-            <p className="text-xs text-gray-500">Create copies of this recurring transaction for future months.</p>
+            <p className="text-xs text-muted">Create copies of this recurring transaction for future months.</p>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">How many months ahead?</label>
+              <label className="text-sm font-medium text-foreground">How many months ahead?</label>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setCopyMonths(Math.max(1, copyMonths - 1))}
-                  className="px-2 py-1 border rounded text-sm hover:bg-gray-50"
+                  className="px-2 py-1 border rounded text-sm hover:bg-background-elevated"
                 >
                   −
                 </button>
@@ -484,15 +484,15 @@ export default function TransactionsPage() {
                 />
                 <button
                   onClick={() => setCopyMonths(Math.min(60, copyMonths + 1))}
-                  className="px-2 py-1 border rounded text-sm hover:bg-gray-50"
+                  className="px-2 py-1 border rounded text-sm hover:bg-background-elevated"
                 >
                   +
                 </button>
               </div>
-              <p className="text-xs text-gray-400">Range: 1-60 months</p>
+              <p className="text-xs text-muted">Range: 1-60 months</p>
             </div>
             <div className="flex items-center justify-end gap-2">
-              <button onClick={() => setCopyId(null)} className="px-3 py-2 rounded-lg text-sm border border-gray-200 text-gray-600 hover:bg-gray-50 transition active:scale-[0.99]">Cancel</button>
+              <button onClick={() => setCopyId(null)} className="px-3 py-2 rounded-lg text-sm border border-border text-muted hover:bg-background-elevated transition active:scale-[0.99]">Cancel</button>
               <button onClick={() => copyId && handleCopy(copyId)} disabled={loading} className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-indigo-700 active:scale-[0.99] disabled:opacity-50">
                 {loading ? 'Copying...' : 'Create Copies'}
               </button>
