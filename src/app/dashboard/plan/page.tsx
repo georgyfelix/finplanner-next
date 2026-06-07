@@ -51,7 +51,9 @@ export default function PlanPage() {
   });
   const [settleId, setSettleId] = useState<string | null>(null);
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [editId, setEditId] = useState<string | null>(null);
   const [settleForm, setSettleForm] = useState({ accountId: '', amount: '', category: '', date: '' });
+  const [editForm, setEditForm] = useState({ amount: '', category: '', date: '' });
   const [loading, setLoading] = useState(false);
 
   const loadAll = useCallback(async () => {
@@ -127,10 +129,20 @@ export default function PlanPage() {
     .reduce((sum, t) => sum + Math.abs(Number(t.amount)), 0);
   const plannedOutflowTotal = plannedExpenseTotal + plannedSavingTotal;
   const totalPlannedNet = plannedIncomeTotal - plannedOutflowTotal;
-  // Opening already includes salary credit from rollover — only subtract outflows for projection.
-  const projectedClosing = totalMonthlyOpening - plannedOutflowTotal;
+  const trueStartingBalance = totalMonthlyOpening - plannedIncomeTotal;
   const totalCurrentBalance = visibleAccounts.reduce((sum, a) => sum + a.currentBalance, 0);
-  const unaccounted = totalCurrentBalance - projectedClosing;
+  
+  // Calculate unplanned spending dynamically based on actual balance changes
+  const pendingPlannedOutflows = plannedThisMonth
+    .filter(t => categoryTypeByName.get(t.category) === 'expense' || categoryTypeByName.get(t.category) === 'saving')
+    .reduce((sum, t) => sum + Math.abs(Number(t.amount)), 0);
+  const settledPlannedOutflows = plannedOutflowTotal - pendingPlannedOutflows;
+
+  // Unplanned Expense = True Start + Planned Income - Settled Planned Outflows - Current Balance
+  const derivedUnplannedExpense = trueStartingBalance + plannedIncomeTotal - settledPlannedOutflows - totalCurrentBalance;
+  
+  // Projected Closing = What we have in the bank right now + What we still expect to happen
+  const projectedClosing = totalCurrentBalance + plannedNet;
 
   async function handleAddPlanned(e: React.FormEvent) {
     e.preventDefault();
@@ -141,6 +153,46 @@ export default function PlanPage() {
       body: JSON.stringify({ ...form, amount: parseFloat(form.amount), isPlanned: true, origin: 'planned' }),
     });
     setForm(f => ({ ...f, amount: '' }));
+    await loadAll();
+    setLoading(false);
+  }
+
+  async function handleCopyPreviousMonth() {
+    const prevMonth = month === 1 ? 12 : month - 1;
+    const prevYear = month === 1 ? year - 1 : year;
+    const toCopy = transactions.filter(t => {
+      if (t.origin !== 'planned') return false;
+      const anchor = t.plannedDate ?? t.date;
+      const d = new Date(anchor);
+      return d.getMonth() + 1 === prevMonth && d.getFullYear() === prevYear;
+    });
+
+    if (toCopy.length === 0) {
+      alert('No planned transactions found in the previous month.');
+      return;
+    }
+
+    setLoading(true);
+    for (const tx of toCopy) {
+      const originalDate = new Date(tx.date);
+      let newDay = originalDate.getDate();
+      const daysInCurrentMonth = new Date(year, month, 0).getDate();
+      if (newDay > daysInCurrentMonth) newDay = daysInCurrentMonth;
+      
+      const newDateStr = `${year}-${String(month).padStart(2, '0')}-${String(newDay).padStart(2, '0')}`;
+
+      await fetch('/api/transactions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: Math.abs(Number(tx.amount)),
+          category: tx.category,
+          date: newDateStr,
+          isPlanned: true,
+          origin: 'planned'
+        }),
+      });
+    }
     await loadAll();
     setLoading(false);
   }
@@ -172,6 +224,32 @@ export default function PlanPage() {
     await loadAll();
   }
 
+  function openEdit(tx: Transaction) {
+    setEditId(tx.id);
+    setEditForm({
+      amount: String(Math.abs(normalizeAmount(tx))),
+      category: tx.category,
+      date: tx.plannedDate ?? tx.date,
+    });
+  }
+
+  async function handleEdit(id: string) {
+    setLoading(true);
+    await fetch(`/api/transactions/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: parseFloat(editForm.amount),
+        category: editForm.category,
+        date: editForm.date,
+        plannedDate: editForm.date
+      }),
+    });
+    setEditId(null);
+    await loadAll();
+    setLoading(false);
+  }
+
   async function handleDelete(id: string) {
     await fetch('/api/transactions', {
       method: 'DELETE',
@@ -187,15 +265,15 @@ export default function PlanPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
+      <div className="bg-background rounded-xl border p-5 shadow-sm">
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div>
             <h1 className="text-2xl font-bold">Monthly Plan</h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-muted mt-1">
               Set start balance and income, add account-agnostic planned items, then settle to actual with account and final amount.
             </p>
           </div>
-          <p className="text-sm text-gray-500">Currency: {settings?.currency ?? 'USD'}</p>
+          <p className="text-sm text-muted">Currency: {settings?.currency ?? 'USD'}</p>
         </div>
       </div>
 
@@ -217,75 +295,82 @@ export default function PlanPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
-        <h2 className="font-semibold text-sm text-gray-700">Monthly Report Snapshot</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 text-sm">
-          <div>
-            <p className="text-gray-500">Opening (dashboard accounts)</p>
-            <p className="font-semibold">{formatMoney(totalMonthlyOpening)}</p>
-          </div>
-          <div>
-            <p className="text-gray-500">Planned income</p>
-            <p className="font-semibold text-green-700">+{formatMoney(plannedIncomeTotal)}</p>
-          </div>
-          <div>
-            <p className="text-gray-500">Planned expenses</p>
-            <p className="font-semibold text-red-600">{formatMoney(plannedExpenseTotal)}</p>
-          </div>
-          <div>
-            <p className="text-gray-500">Planned savings</p>
-            <p className="font-semibold text-amber-600">{formatMoney(plannedSavingTotal)}</p>
-          </div>
-          <div>
-            <p className="text-gray-500">Planned remaining (pending)</p>
-            <p className={`font-semibold ${plannedNet < 0 ? 'text-red-600' : 'text-green-700'}`}>{fmtAmt(plannedNet)}</p>
-          </div>
-          <div>
-            <p className="text-gray-500">Projected closing</p>
-            <p className={`font-semibold text-lg ${projectedClosing < 0 ? 'text-red-600' : 'text-indigo-700'}`}>{formatMoney(projectedClosing)}</p>
-          </div>
-          <div>
-            <p className="text-gray-500">Current balance (dashboard accounts)</p>
-            <p className="font-semibold">{formatMoney(totalCurrentBalance)}</p>
-            {visibleAccounts.length !== accounts.length && (
-              <p className="text-xs text-amber-600 mt-1">Hidden accounts are excluded here.</p>
-            )}
+      <div className="bg-background rounded-xl border p-5 shadow-sm space-y-6">
+        <div>
+          <h2 className="font-semibold text-sm text-foreground mb-3">1. The Overall Plan</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+            <div className="p-3 bg-background-elevated rounded-lg border border-border">
+              <p className="text-muted text-xs mb-1">Planned Income</p>
+              <p className="font-semibold text-green-600">+{formatMoney(plannedIncomeTotal)}</p>
+            </div>
+            <div className="p-3 bg-background-elevated rounded-lg border border-border">
+              <p className="text-muted text-xs mb-1">Planned Outflows</p>
+              <p className="font-semibold text-red-500">{formatMoney(plannedOutflowTotal)}</p>
+              <p className="text-[10px] text-muted mt-0.5">Exp: {formatMoney(plannedExpenseTotal)} | Sav: {formatMoney(plannedSavingTotal)}</p>
+            </div>
+            <div className="p-3 bg-background-elevated rounded-lg border border-border">
+              <p className="text-muted text-xs mb-1">Monthly Net (Surplus)</p>
+              <p className={`font-semibold ${totalPlannedNet >= 0 ? 'text-green-600' : 'text-red-500'}`}>
+                {totalPlannedNet >= 0 ? '+' : ''}{formatMoney(totalPlannedNet)}
+              </p>
+            </div>
           </div>
         </div>
-        {/* Unaccounted gap */}
-        <div className={`mt-4 rounded-lg px-4 py-3 text-sm border ${
-          unaccounted < -500 ? 'bg-red-50 border-red-200 text-red-700'
-          : unaccounted > 500 ? 'bg-green-50 border-green-200 text-green-700'
-          : 'bg-gray-50 border-gray-200 text-gray-600'
-        }`}>
-          {unaccounted < -500 ? (
-            <span>
-              <span className="font-semibold">Unaccounted gap: {formatMoney(Math.abs(unaccounted))}</span> — your current balance is less than projected. This money was likely spent but not logged or planned.
-            </span>
-          ) : unaccounted > 500 ? (
-            <span>
-              <span className="font-semibold">Surplus: {formatMoney(Math.abs(unaccounted))}</span> — your current balance is higher than projected. Likely an income or transfer not yet planned.
-            </span>
-          ) : (
-            <span className="font-semibold">Balances match projected closing. All expenses appear accounted for.</span>
-          )}
+
+        <div className="pt-4 border-t border-border">
+          <h2 className="font-semibold text-sm text-foreground mb-3">2. The Reality</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm">
+            <div className="p-3 bg-background-elevated rounded-lg border border-border">
+              <p className="text-muted text-xs mb-1">Current Balance</p>
+              <p className="font-semibold">{formatMoney(totalCurrentBalance)}</p>
+              {visibleAccounts.length !== accounts.length && (
+                <p className="text-[10px] text-amber-600 mt-0.5">Excludes hidden accounts</p>
+              )}
+            </div>
+            <div className="p-3 bg-background-elevated rounded-lg border border-border">
+              <p className="text-muted text-xs mb-1">Remaining Planned</p>
+              <p className={`font-semibold ${plannedNet >= 0 ? 'text-green-600' : 'text-red-500'}`}>
+                {formatMoney(Math.abs(plannedNet))}
+              </p>
+              <p className="text-[10px] text-muted mt-0.5">Yet to be settled</p>
+            </div>
+            <div className={`p-3 rounded-lg border ${Math.abs(derivedUnplannedExpense) < 0.01 ? 'bg-background-elevated border-border' : derivedUnplannedExpense > 0 ? 'bg-orange-50/50 border-orange-200 dark:bg-orange-950/20 dark:border-orange-900/50' : 'bg-green-50/50 border-green-200 dark:bg-green-950/20 dark:border-green-900/50'}`}>
+              <p className={`text-xs mb-1 font-medium ${Math.abs(derivedUnplannedExpense) < 0.01 ? 'text-muted' : derivedUnplannedExpense > 0 ? 'text-orange-800 dark:text-orange-300' : 'text-green-800 dark:text-green-300'}`}>Unplanned Expenses</p>
+              <p className={`font-bold text-lg ${Math.abs(derivedUnplannedExpense) < 0.01 ? 'text-foreground' : derivedUnplannedExpense > 0 ? 'text-orange-600 dark:text-orange-400' : 'text-green-600 dark:text-green-400'}`}>
+                {Math.abs(derivedUnplannedExpense) < 0.01 ? formatMoney(0) : `${derivedUnplannedExpense < 0 ? '+' : ''}${formatMoney(Math.abs(derivedUnplannedExpense))}`}
+              </p>
+              <p className={`text-[10px] mt-0.5 ${Math.abs(derivedUnplannedExpense) < 0.01 ? 'text-muted' : derivedUnplannedExpense > 0 ? 'text-orange-600/70 dark:text-orange-400/70' : 'text-green-600/70 dark:text-green-400/70'}`}>
+                {Math.abs(derivedUnplannedExpense) < 0.01 ? 'No unexpected changes' : 'Derived from balances'}
+              </p>
+            </div>
+            <div className="p-3 bg-sky-50/50 border-sky-100 dark:bg-sky-950/20 dark:border-sky-900/50 rounded-lg border">
+              <p className="text-sky-900 dark:text-sky-300 text-xs mb-1 font-medium">Settled Payments</p>
+              <p className="font-bold text-lg text-sky-700 dark:text-sky-400">{formatMoney(settledPlannedOutflows)}</p>
+              <p className="text-[10px] text-sky-600/70 dark:text-sky-400/70 mt-0.5">Planned & Paid</p>
+            </div>
+            <div className="p-3 bg-indigo-50/50 border-indigo-100 dark:bg-indigo-950/20 dark:border-indigo-900/50 rounded-lg border">
+              <p className="text-indigo-900 dark:text-indigo-300 text-xs mb-1 font-medium">Projected Month End</p>
+              <p className="font-bold text-lg text-indigo-700 dark:text-indigo-400">{formatMoney(projectedClosing)}</p>
+              <p className="text-[10px] text-indigo-600/70 dark:text-indigo-400/70 mt-0.5">Current Balance + Remaining Planned</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
-        <div className="p-4 border-b bg-gray-50">
-          <h2 className="font-semibold text-sm text-gray-700">
+      <div className="bg-background rounded-xl border shadow-sm overflow-hidden">
+        <div className="p-4 border-b bg-background-elevated">
+          <h2 className="font-semibold text-sm text-foreground">
             Account Balances (Actual) — {MONTHS[month - 1]} {year}
           </h2>
-          <p className="text-xs text-gray-400 mt-0.5">
+          <p className="text-xs text-muted mt-0.5">
             Planned items are account-agnostic and do not affect an individual account until settled.
           </p>
         </div>
         {visibleAccounts.length === 0 ? (
-          <p className="p-5 text-gray-400 text-sm">No dashboard-visible accounts. Manage visibility in Accounts.</p>
+          <p className="p-5 text-muted text-sm">No dashboard-visible accounts. Manage visibility in Accounts.</p>
         ) : (
           <table className="w-full text-sm">
-            <thead className="text-gray-500 border-b">
+            <thead className="text-muted border-b">
               <tr>
                 <th className="text-left px-4 py-2 font-medium">Account</th>
                 <th className="text-right px-4 py-2 font-medium">Current Balance</th>
@@ -293,15 +378,15 @@ export default function PlanPage() {
             </thead>
             <tbody className="divide-y">
               {visibleAccounts.map(acc => (
-                <tr key={acc.id} className="hover:bg-gray-50">
+                <tr key={acc.id} className="hover:bg-background-elevated">
                   <td className="px-4 py-3 font-medium">{acc.name}</td>
-                  <td className="px-4 py-3 text-right text-gray-700">
+                  <td className="px-4 py-3 text-right text-foreground">
                     {formatMoney(acc.currentBalance)}
                   </td>
                 </tr>
               ))}
               {visibleAccounts.length > 1 && (
-                <tr className="bg-gray-50 font-semibold text-sm border-t-2">
+                <tr className="bg-background-elevated font-semibold text-sm border-t-2">
                   <td className="px-4 py-3">Total</td>
                   <td className="px-4 py-3 text-right">
                     {formatMoney(visibleAccounts.reduce((s, a) => s + a.currentBalance, 0))}
@@ -314,41 +399,55 @@ export default function PlanPage() {
       </div>
 
       {/* Planned transactions list */}
-      <div className="bg-white rounded-xl border shadow-sm">
-        <div className="p-4 border-b bg-gray-50 flex items-center justify-between">
+      <div className="bg-background rounded-xl border shadow-sm">
+        <div className="p-4 border-b bg-background-elevated flex items-center justify-between">
           <div>
-            <h2 className="font-semibold text-sm text-gray-700">
+            <h2 className="font-semibold text-sm text-foreground">
               Planned Transactions — {MONTHS[month - 1]} {year}
             </h2>
-            <p className="text-xs text-gray-400 mt-0.5">Settle with account + final amount when the transaction actually happens.</p>
+            <p className="text-xs text-muted mt-0.5">Settle with account + final amount when the transaction actually happens.</p>
           </div>
           <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">
-            {plannedThisMonth.length} planned
+            {allPlannedThisMonth.length} planned
           </span>
         </div>
-        {plannedThisMonth.length === 0 ? (
-          <p className="p-5 text-gray-400 text-sm">No planned transactions for {MONTHS[month - 1]} {year}. Add one below.</p>
+        {allPlannedThisMonth.length === 0 ? (
+          <p className="p-5 text-muted text-sm">No planned transactions for {MONTHS[month - 1]} {year}. Add one below.</p>
         ) : (
-          <ul className="divide-y">
-            {plannedThisMonth.map(tx => (
+          <ul className="divide-y divide-border">
+            {allPlannedThisMonth.map(tx => (
               <li key={tx.id} className="p-4 flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-sm">{tx.category}</p>
-                  <p className="text-xs text-gray-400">{tx.date}</p>
+                  <p className="font-medium text-sm text-foreground">{tx.category}</p>
+                  <p className="text-xs text-muted">{tx.date}</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className={`font-semibold text-sm ${normalizeAmount(tx) < 0 ? 'text-red-500' : 'text-green-600'}`}>
-                    {fmtAmt(normalizeAmount(tx))}
+                  <span className={`font-bold text-lg ${normalizeAmount(tx) < 0 ? 'text-red-600 dark:text-red-400' : 'text-green-600 dark:text-green-400'}`}>
+                    {normalizeAmount(tx) >= 0 ? '+' : ''}{formatMoney(Math.abs(normalizeAmount(tx)))}
                   </span>
-                  <button
-                    onClick={() => openSettle(tx)}
-                    className="px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold transition active:scale-[0.99]"
-                  >
-                    ✔ Settle
-                  </button>
-                  <button onClick={() => setDeleteId(tx.id)} className="px-3 py-1.5 rounded-lg border border-red-200 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition active:scale-[0.99]">
-                    🗑 Delete
-                  </button>
+                  {!tx.isPlanned ? (
+                    <span className="px-3 py-1.5 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                      ✔ Complete
+                    </span>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => openSettle(tx)}
+                        className="px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold transition active:scale-[0.99]"
+                      >
+                        ✔ Settle
+                      </button>
+                      <button
+                        onClick={() => openEdit(tx)}
+                        className="px-3 py-1.5 rounded-lg border border-border bg-background-elevated hover:bg-background text-foreground text-xs font-semibold transition active:scale-[0.99]"
+                      >
+                        ✏ Edit
+                      </button>
+                      <button onClick={() => setDeleteId(tx.id)} className="px-3 py-1.5 rounded-lg border border-red-200 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition active:scale-[0.99]">
+                        🗑 Delete
+                      </button>
+                    </>
+                  )}
                 </div>
               </li>
             ))}
@@ -360,15 +459,15 @@ export default function PlanPage() {
         {settleId && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <button type="button" aria-label="Close" className="absolute inset-0 bg-black/40" onClick={() => setSettleId(null)} />
-            <div className="relative w-full max-w-lg bg-white rounded-2xl border shadow-2xl p-6 space-y-4">
+            <div className="relative w-full max-w-lg bg-background rounded-2xl border shadow-2xl p-6 space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="font-semibold text-base text-gray-800">Settle Planned Transaction</h2>
-                <button onClick={() => setSettleId(null)} className="text-sm text-gray-500 hover:text-gray-700">✕</button>
+                <h2 className="font-semibold text-base text-foreground">Settle Planned Transaction</h2>
+                <button onClick={() => setSettleId(null)} className="text-sm text-muted hover:text-foreground">✕</button>
               </div>
-              <p className="text-xs text-gray-400">Select the account and confirm final amount, category and date.</p>
+              <p className="text-xs text-muted">Select the account and confirm final amount, category and date.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs text-gray-500 font-medium">Account</label>
+                  <label className="text-xs text-muted font-medium">Account</label>
                   <select
                     className="border rounded-lg px-3 py-2 text-sm"
                     value={settleForm.accountId}
@@ -380,7 +479,7 @@ export default function PlanPage() {
                   </select>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs text-gray-500 font-medium">Amount</label>
+                  <label className="text-xs text-muted font-medium">Amount</label>
                   <input
                     type="number" step="0.01"
                     className="border rounded-lg px-3 py-2 text-sm"
@@ -390,7 +489,7 @@ export default function PlanPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs text-gray-500 font-medium">Category</label>
+                  <label className="text-xs text-muted font-medium">Category</label>
                   <input
                     type="text"
                     className="border rounded-lg px-3 py-2 text-sm"
@@ -400,7 +499,7 @@ export default function PlanPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs text-gray-500 font-medium">Actual date</label>
+                  <label className="text-xs text-muted font-medium">Actual date</label>
                   <input
                     type="date"
                     className="border rounded-lg px-3 py-2 text-sm"
@@ -410,7 +509,7 @@ export default function PlanPage() {
                 </div>
               </div>
               <div className="flex items-center justify-end gap-2 pt-2">
-                <button onClick={() => setSettleId(null)} className="px-4 py-2 rounded-lg text-sm border border-gray-200 text-gray-600 hover:bg-gray-50 transition active:scale-[0.99]">Cancel</button>
+                <button onClick={() => setSettleId(null)} className="px-4 py-2 rounded-lg text-sm border border-border text-muted hover:bg-background-elevated transition active:scale-[0.99]">Cancel</button>
                 <button
                   onClick={() => handleSettle(settleId)}
                   className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition hover:bg-indigo-700 active:scale-[0.99]"
@@ -422,10 +521,73 @@ export default function PlanPage() {
           </div>
         )}
 
+        {/* Edit modal */}
+        {editId && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <button type="button" aria-label="Close" className="absolute inset-0 bg-black/40" onClick={() => setEditId(null)} />
+            <div className="relative w-full max-w-lg bg-background rounded-2xl border border-border shadow-2xl p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="font-semibold text-base text-foreground">Edit Planned Transaction</h2>
+                <button onClick={() => setEditId(null)} className="text-sm text-muted hover:text-foreground">✕</button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex flex-col gap-1">
+                  <label className="text-xs text-muted font-medium">Amount</label>
+                  <input
+                    type="number" step="0.01"
+                    className="border border-border rounded-lg px-3 py-2 text-sm bg-background"
+                    value={editForm.amount}
+                    onChange={e => setEditForm(f => ({ ...f, amount: e.target.value }))}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-xs text-muted font-medium">Category</label>
+                  <CategorySelect
+                    className="border border-border rounded-lg px-3 py-2 text-sm bg-background"
+                    value={editForm.category}
+                    onChange={v => setEditForm(f => ({ ...f, category: v }))}
+                  />
+                </div>
+                <div className="flex flex-col gap-1 sm:col-span-2">
+                  <label className="text-xs text-muted font-medium">Planned Date</label>
+                  <input
+                    type="date"
+                    className="border border-border rounded-lg px-3 py-2 text-sm bg-background"
+                    value={editForm.date}
+                    onChange={e => setEditForm(f => ({ ...f, date: e.target.value }))}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-end gap-2 pt-2">
+                <button onClick={() => setEditId(null)} className="px-4 py-2 rounded-lg text-sm border border-border text-muted hover:bg-background-elevated transition active:scale-[0.99]">Cancel</button>
+                <button
+                  disabled={loading}
+                  onClick={() => handleEdit(editId)}
+                  className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition hover:bg-indigo-700 active:scale-[0.99] disabled:opacity-50"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
       {/* Add planned transaction */}
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
-        <h2 className="font-semibold text-sm mb-1">Add Planned Transaction</h2>
-        <p className="text-xs text-gray-400 mb-4">Plan a future income or expense without binding to an account.</p>
+      <div className="bg-background rounded-xl border p-5 shadow-sm">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="font-semibold text-sm mb-1 text-foreground">Add Planned Transaction</h2>
+            <p className="text-xs text-muted">Plan a future income or expense without binding to an account.</p>
+          </div>
+          <button
+            type="button"
+            onClick={handleCopyPreviousMonth}
+            disabled={loading}
+            className="px-3 py-1.5 rounded-lg border border-border text-xs font-medium text-foreground hover:bg-background-elevated transition active:scale-[0.99] disabled:opacity-50"
+          >
+            📋 Copy Previous Month
+          </button>
+        </div>
         <form onSubmit={handleAddPlanned} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <input
             type="number"

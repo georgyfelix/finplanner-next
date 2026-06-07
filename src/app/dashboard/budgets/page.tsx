@@ -65,17 +65,17 @@ export default function BudgetsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
+      <div className="bg-background rounded-xl border p-5 shadow-sm">
         <h1 className="text-2xl font-bold">Budgets</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-muted mt-1">
           Set monthly limits per category. Display currency: {settings?.currency ?? 'USD'}
         </p>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-muted mt-1">
           Only one budget is kept per category for a given month. Adding again updates the existing one.
         </p>
       </div>
 
-      <form onSubmit={handleCreate} className="bg-white rounded-xl border p-5 shadow-sm space-y-3">
+      <form onSubmit={handleCreate} className="bg-background rounded-xl border p-5 shadow-sm space-y-3">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <CategorySelect
             className="border rounded-lg px-3 py-2 text-sm"
@@ -95,22 +95,22 @@ export default function BudgetsPage() {
 
       {/* Filter */}
       <div className="flex gap-3 items-center">
-        <span className="text-sm text-gray-500">Showing:</span>
+        <span className="text-sm text-muted">Showing:</span>
         <select className="border rounded-lg px-3 py-2 text-sm" value={filterMonth} onChange={e => setFilterMonth(Number(e.target.value))}>
           {MONTHS.map((m, i) => <option key={i} value={i + 1}>{m}</option>)}
         </select>
         <input type="number" className="border rounded-lg px-3 py-2 text-sm w-24" value={filterYear} onChange={e => setFilterYear(Number(e.target.value))} />
       </div>
 
-      <div className="bg-white rounded-xl border shadow-sm divide-y">
+      <div className="bg-background rounded-xl border shadow-sm divide-y">
         {budgets.length === 0 ? (
-          <p className="p-5 text-gray-400 text-sm">No budgets for this period.</p>
+          <p className="p-5 text-muted text-sm">No budgets for this period.</p>
         ) : (
           budgets.map(b => (
             <div key={b.id} className="p-4 flex items-center justify-between">
               <div>
                 <p className="font-medium text-sm">{b.category}</p>
-                <p className="text-xs text-gray-400">{MONTHS[b.month - 1]} {b.year}</p>
+                <p className="text-xs text-muted">{MONTHS[b.month - 1]} {b.year}</p>
               </div>
               <div className="flex items-center gap-4">
                 {editId === b.id ? (
@@ -124,7 +124,7 @@ export default function BudgetsPage() {
                       autoFocus
                     />
                     <button onClick={() => handleEditSave(b.id)} className="text-xs text-indigo-600 hover:underline font-medium">Save</button>
-                    <button onClick={() => setEditId(null)} className="text-xs text-gray-400 hover:underline">Cancel</button>
+                    <button onClick={() => setEditId(null)} className="text-xs text-muted hover:underline">Cancel</button>
                   </div>
                 ) : (
                   <>

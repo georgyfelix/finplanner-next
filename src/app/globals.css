@@ -1,45 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --app-bg: #f8fafc;
+  --app-bg: #f8f9ff;
   --app-bg-elevated: #ffffff;
-  --app-text: #0f172a;
-  --app-muted: #64748b;
-  --app-border: #e2e8f0;
-  --app-primary: #0f172a;
-  --app-secondary: #334155;
-  --app-accent: #14b8a6;
-  --app-success: #22c55e;
+  --app-text: #0b1c30;
+  --app-muted: #565e74;
+  --app-border: #c3c5d9;
+  --app-primary: #003ec7;
+  --app-primary-container: #0052ff;
+  --app-secondary: #565e74;
+  --app-accent: #10b981;
+  --app-success: #005a3c;
   --app-warning: #f59e0b;
-  --app-danger: #ef4444;
+  --app-danger: #ba1a1a;
+  
+  /* Stitch Surface Tones */
+  --surface-lowest: #ffffff;
+  --surface-low: #eff4ff;
+  --surface-container: #e5eeff;
+  --surface-high: #dce9ff;
+  --surface-highest: #d3e4fe;
+  --outline-color: #737688;
+  --outline-variant-color: #c3c5d9;
 }
 
 @theme inline {
   --color-background: var(--app-bg);
+  --color-background-elevated: var(--app-bg-elevated);
   --color-foreground: var(--app-text);
+  --color-muted: var(--app-muted);
+  --color-border: var(--app-border);
+  --color-primary: var(--app-primary);
+  --color-primary-container: var(--app-primary-container);
+  --color-secondary: var(--app-secondary);
+  --color-accent: var(--app-accent);
+  --color-success: var(--app-success);
+  --color-warning: var(--app-warning);
+  --color-danger: var(--app-danger);
+
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  
+  --radius-sm: 0.125rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
 }
 
 .dark {
-  --app-bg: #020617;
-  --app-bg-elevated: #0b1220;
-  --app-text: #e2e8f0;
-  --app-muted: #94a3b8;
-  --app-border: #1e293b;
-  --app-primary: #e2e8f0;
-  --app-secondary: #94a3b8;
-  --app-accent: #14b8a6;
-  --app-success: #22c55e;
+  --app-bg: #0b1c30;
+  --app-bg-elevated: #213145;
+  --app-text: #eaf1ff;
+  --app-muted: #bec6e0;
+  --app-border: #737688;
+  --app-primary: #b7c4ff;
+  --app-primary-container: #0052ff;
+  --app-secondary: #bec6e0;
+  --app-accent: #4edea3;
+  --app-success: #6ffbbe;
   --app-warning: #f59e0b;
-  --app-danger: #ef4444;
+  --app-danger: #ffdad6;
 }
 
 body {
-  background:
-    radial-gradient(1200px 500px at -10% -20%, rgb(20 184 166 / 0.08), transparent),
-    radial-gradient(900px 400px at 110% -10%, rgb(51 65 85 / 0.08), transparent),
-    var(--app-bg);
+  background: var(--app-bg);
   color: var(--app-text);
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
 }
@@ -51,3 +76,4 @@ body {
 .text-app-text {
   color: var(--app-text);
 }
+
