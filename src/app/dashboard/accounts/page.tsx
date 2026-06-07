@@ -172,14 +172,14 @@ export default function AccountsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border p-5 shadow-sm">
+      <div className="bg-background rounded-xl border p-5 shadow-sm">
         <h1 className="text-2xl font-bold">Accounts</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-muted mt-1">
           Track current balances per bank account. Display currency: {settings?.currency ?? 'USD'}
         </p>
       </div>
 
-      <form onSubmit={handleCreate} className="bg-white rounded-xl border p-5 shadow-sm space-y-3">
+      <form onSubmit={handleCreate} className="bg-background rounded-xl border p-5 shadow-sm space-y-3">
         <div className="flex gap-3 flex-wrap">
           <input
             className="flex-1 min-w-40 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -204,19 +204,19 @@ export default function AccountsPage() {
             + Add Account
           </button>
         </div>
-        <p className="text-xs text-gray-400">Set starting balance to your current real balance so projections are accurate.</p>
+        <p className="text-xs text-muted">Set starting balance to your current real balance so projections are accurate.</p>
       </form>
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      <div className="bg-white rounded-xl border shadow-sm divide-y">
+      <div className="bg-background rounded-xl border shadow-sm divide-y">
         {accounts.length === 0 ? (
-          <p className="p-5 text-gray-400 text-sm">No accounts yet. Create one above.</p>
+          <p className="p-5 text-muted text-sm">No accounts yet. Create one above.</p>
         ) : (
           accounts.map((a) => (
             <div key={a.id} className="p-4 flex items-center justify-between gap-4 flex-wrap">
               <div>
                 <p className="font-medium">{a.name}</p>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-muted">
                   Starting: {formatMoney(Number(a.initialBalance))} · Created {new Date(a.createdAt).toLocaleDateString()}
                 </p>
                 {a.hiddenFromDashboard && (
@@ -225,10 +225,10 @@ export default function AccountsPage() {
               </div>
               <div className="flex items-center gap-4 flex-wrap">
                 <div className="text-right">
-                  <p className={`font-bold text-lg ${a.currentBalance < 0 ? 'text-red-600' : 'text-gray-900'}`}>
+                  <p className={`font-bold text-lg ${a.currentBalance < 0 ? 'text-red-600' : 'text-foreground'}`}>
                     {formatMoney(a.currentBalance)}
                   </p>
-                  <p className="text-xs text-gray-400">current balance</p>
+                  <p className="text-xs text-muted">current balance</p>
                 </div>
                 {editId === a.id ? (
                   <div className="flex gap-2 items-center">
@@ -241,7 +241,7 @@ export default function AccountsPage() {
                       autoFocus
                     />
                     <button onClick={() => handleUpdateBalance(a.id)} className="text-sm text-indigo-600 font-medium hover:underline">Save</button>
-                    <button onClick={() => setEditId(null)} className="text-sm text-gray-400 hover:underline">Cancel</button>
+                    <button onClick={() => setEditId(null)} className="text-sm text-muted hover:underline">Cancel</button>
                   </div>
                 ) : (
                   <button
@@ -270,11 +270,11 @@ export default function AccountsPage() {
         )}
       </div>
 
-      <div className="bg-white rounded-xl border p-5 shadow-sm space-y-4">
+      <div className="bg-background rounded-xl border p-5 shadow-sm space-y-4">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div>
             <h2 className="text-lg font-semibold">Monthly Account Balances</h2>
-            <p className="text-sm text-gray-500">Manage opening and closing balances per account for each month.</p>
+            <p className="text-sm text-muted">Manage opening and closing balances per account for each month.</p>
           </div>
           <div className="flex items-center gap-2">
             <select
@@ -297,7 +297,7 @@ export default function AccountsPage() {
           <button
             type="button"
             onClick={setAllClosingFromCurrent}
-            className="px-3 py-2 rounded-lg border border-teal-200 text-teal-700 bg-teal-50 hover:bg-teal-100 text-sm font-medium transition active:scale-[0.99]"
+            className="px-3 py-2 rounded-lg border border-blue-200 text-blue-700 bg-blue-50 hover:bg-blue-100 text-sm font-medium transition active:scale-[0.99]"
           >
             Set All Closing = Current
           </button>
@@ -305,18 +305,18 @@ export default function AccountsPage() {
             type="button"
             onClick={saveMonthlyBalances}
             disabled={savingMonthly || monthlyBalances.length === 0}
-            className="px-4 py-2 rounded-lg bg-teal-600 text-white hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium transition active:scale-[0.99]"
+            className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium transition active:scale-[0.99]"
           >
             Save Monthly Balances
           </button>
         </div>
 
         {monthlyBalances.length === 0 ? (
-          <p className="text-sm text-gray-400">No accounts found.</p>
+          <p className="text-sm text-muted">No accounts found.</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="border-b text-gray-500">
+              <thead className="border-b text-muted">
                 <tr>
                   <th className="text-left px-3 py-2 font-medium">Account</th>
                   <th className="text-right px-3 py-2 font-medium">Opening</th>
@@ -350,14 +350,14 @@ export default function AccountsPage() {
                       <button
                         type="button"
                         onClick={() => setClosingFromCurrent(row.accountId)}
-                        className="px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition active:scale-[0.99]"
+                        className="px-3 py-1.5 rounded-lg border border-border bg-background-elevated hover:bg-background-elevated text-foreground text-xs font-semibold transition active:scale-[0.99]"
                       >
                         Use Current
                       </button>
                     </td>
                   </tr>
                 ))}
-                <tr className="bg-gray-50 font-semibold border-t-2">
+                <tr className="bg-background-elevated font-semibold border-t-2">
                   <td className="px-3 py-2">Total</td>
                   <td className="px-3 py-2 text-right">{formatMoney(openingTotal)}</td>
                   <td className="px-3 py-2 text-right">{formatMoney(closingTotal)}</td>

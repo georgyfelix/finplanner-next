@@ -58,12 +58,12 @@ export default function GlobalLoaderProvider({ children }: { children: React.Rea
       {children}
       {visible && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/25 backdrop-blur-[1px]">
-          <div className="rounded-2xl border border-white/50 bg-white/95 px-6 py-5 shadow-2xl">
+          <div className="rounded-2xl border border-white/50 bg-background/95 px-6 py-5 shadow-2xl">
             <div className="flex items-center gap-3">
-              <span className="h-6 w-6 animate-spin rounded-full border-2 border-teal-600 border-t-transparent" />
+              <span className="h-6 w-6 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
               <div>
-                <p className="text-sm font-semibold text-slate-800">Loading</p>
-                <p className="text-xs text-slate-500">Fetching latest data...</p>
+                <p className="text-sm font-semibold text-foreground">Loading</p>
+                <p className="text-xs text-muted">Fetching latest data...</p>
               </div>
             </div>
           </div>

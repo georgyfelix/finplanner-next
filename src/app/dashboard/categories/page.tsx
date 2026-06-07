@@ -102,11 +102,11 @@ export default function CategoriesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Categories</h1>
-        <span className="text-sm text-gray-400">{cats.length} categories</span>
+        <span className="text-sm text-muted">{cats.length} categories</span>
       </div>
 
       {/* Add new */}
-      <form onSubmit={handleAdd} className="bg-white rounded-xl border p-5 shadow-sm">
+      <form onSubmit={handleAdd} className="bg-background rounded-xl border p-5 shadow-sm">
         <h2 className="font-semibold text-sm mb-3">Add Custom Category</h2>
         <div className="flex gap-3 flex-wrap">
           <input
@@ -137,20 +137,20 @@ export default function CategoriesPage() {
 
       {/* My categories */}
       {cats.length > 0 && (
-        <div className="bg-white rounded-xl border shadow-sm">
-          <div className="p-4 border-b bg-gray-50">
-            <h2 className="font-semibold text-sm text-gray-700">Your Categories</h2>
+        <div className="bg-background rounded-xl border shadow-sm">
+          <div className="p-4 border-b bg-background-elevated">
+            <h2 className="font-semibold text-sm text-foreground">Your Categories</h2>
           </div>
           {grouped.map(g => (
             <div key={g.type}>
-              <div className="px-4 py-2 bg-gray-50 border-b border-t first:border-t-0">
+              <div className="px-4 py-2 bg-background-elevated border-b border-t first:border-t-0">
                 <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${TYPE_LABELS[g.type].color}`}>
                   {g.type === 'expense' ? '💸' : g.type === 'income' ? '💰' : '🏦'} {TYPE_LABELS[g.type].label}
                 </span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 divide-x divide-y">
                 {g.items.map(c => (
-                  <div key={c.id} className="flex items-center justify-between px-4 py-2.5 hover:bg-gray-50">
+                  <div key={c.id} className="flex items-center justify-between px-4 py-2.5 hover:bg-background-elevated">
                     <span className="text-sm">{c.name}</span>
                     <button
                       onClick={() => setConfirmState({ kind: 'delete', id: c.id })}
@@ -169,11 +169,11 @@ export default function CategoriesPage() {
 
       {/* Suggested */}
       {remaining.length > 0 && (
-        <div className="bg-white rounded-xl border shadow-sm">
-          <div className="p-4 border-b bg-gray-50 flex items-center justify-between">
+        <div className="bg-background rounded-xl border shadow-sm">
+          <div className="p-4 border-b bg-background-elevated flex items-center justify-between">
             <div>
-              <h2 className="font-semibold text-sm text-gray-700">Suggested Categories</h2>
-              <p className="text-xs text-gray-400 mt-0.5">Click to add individual ones, or add all at once</p>
+              <h2 className="font-semibold text-sm text-foreground">Suggested Categories</h2>
+              <p className="text-xs text-muted mt-0.5">Click to add individual ones, or add all at once</p>
             </div>
             <button
               onClick={() => setConfirmState({ kind: 'addAll', count: remaining.length })}
@@ -185,7 +185,7 @@ export default function CategoriesPage() {
           </div>
           {suggestedGrouped.map(g => (
             <div key={g.type}>
-              <div className="px-4 py-2 bg-gray-50 border-b border-t first:border-t-0">
+              <div className="px-4 py-2 bg-background-elevated border-b border-t first:border-t-0">
                 <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${TYPE_LABELS[g.type].color}`}>
                   {g.type === 'expense' ? '💸' : g.type === 'income' ? '💰' : '🏦'} {TYPE_LABELS[g.type].label}
                 </span>
@@ -195,7 +195,7 @@ export default function CategoriesPage() {
                   <button
                     key={s.name}
                     onClick={() => handleAddSuggested(s)}
-                    className="text-sm border rounded-full px-3 py-1 text-gray-600 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-300 transition active:scale-[0.99]"
+                    className="text-sm border rounded-full px-3 py-1 text-muted hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-300 transition active:scale-[0.99]"
                   >
                     + {s.name}
                   </button>
@@ -207,7 +207,7 @@ export default function CategoriesPage() {
       )}
 
       {cats.length === 0 && remaining.length === 0 && (
-        <p className="text-gray-400 text-sm text-center py-8">No categories yet. Add one above or use suggested ones.</p>
+        <p className="text-muted text-sm text-center py-8">No categories yet. Add one above or use suggested ones.</p>
       )}
 
       <ConfirmModal

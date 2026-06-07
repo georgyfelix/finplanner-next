@@ -56,30 +56,34 @@ export default async function DashboardPage() {
     if (type === 'expense' || type === 'saving') return -Math.abs(raw);
     return raw;
   };
-  const plannedNetThisMonth = plannedThisMonth.reduce((sum, t) => sum + normalizeAmount(t), 0);
-
-  const actualThisMonth = actualTxs.filter(t => {
-    const d = new Date(t.date);
-    return d.getMonth() + 1 === month && d.getFullYear() === year;
-  });
-  const unplannedExpenses = actualThisMonth
-    .filter(t => t.origin !== 'planned' && normalizeAmount(t) < 0)
-    .reduce((sum, t) => sum + Math.abs(normalizeAmount(t)), 0);
-
-  const plannedOutflowThisMonth = allPlannedThisMonth
-    .filter(t => {
-      const type = categoryTypeByName.get(t.category);
-      return type === 'expense' || type === 'saving';
-    })
-    .reduce((sum, t) => sum + Math.abs(normalizeAmount(t)), 0);
 
   // Use visible accounts for monthly opening/closing totals as well.
   const visibleAccountIds = new Set(visibleAccounts.map(a => a.id));
   const visibleMonthlyBalances = monthAccountBalances.filter(r => visibleAccountIds.has(r.accountId));
   const totalMonthlyOpening = visibleMonthlyBalances.reduce((sum, r) => sum + Number(r.openingBalance), 0);
   const totalMonthlyClosing = visibleMonthlyBalances.reduce((sum, r) => sum + Number(r.closingBalance), 0);
-  // Opening already includes salary credit — only subtract planned outflows.
-  const projectedEndOfMonth = totalMonthlyOpening - plannedOutflowThisMonth;
+
+  const plannedIncomeThisMonth = allPlannedThisMonth
+    .filter(t => categoryTypeByName.get(t.category) === 'income')
+    .reduce((sum, t) => sum + Math.abs(Number(t.amount)), 0);
+    
+  const plannedOutflowThisMonth = allPlannedThisMonth
+    .filter(t => categoryTypeByName.get(t.category) === 'expense' || categoryTypeByName.get(t.category) === 'saving')
+    .reduce((sum, t) => sum + Math.abs(Number(t.amount)), 0);
+
+  const plannedNetThisMonth = plannedIncomeThisMonth - plannedOutflowThisMonth;
+  const trueStartingBalance = totalMonthlyOpening - plannedIncomeThisMonth;
+  const pendingPlannedOutflows = plannedThisMonth
+    .filter(t => categoryTypeByName.get(t.category) === 'expense' || categoryTypeByName.get(t.category) === 'saving')
+    .reduce((sum, t) => sum + Math.abs(Number(t.amount)), 0);
+  const settledPlannedOutflows = plannedOutflowThisMonth - pendingPlannedOutflows;
+
+  // Unplanned Expense = True Start + Planned Income - Settled Planned Outflows - Current Balance
+  const derivedUnplannedExpense = trueStartingBalance + plannedIncomeThisMonth - settledPlannedOutflows - totalVisibleBalance;
+
+  // Projected end of month: Current Balance + Remaining Planned
+  const pendingPlannedNet = plannedThisMonth.reduce((sum, t) => sum + normalizeAmount(t), 0);
+  const projectedEndOfMonth = totalVisibleBalance + pendingPlannedNet;
 
   const recentActual = actualTxs
     .sort((a, b) => b.date.localeCompare(a.date))
@@ -153,40 +157,31 @@ export default async function DashboardPage() {
         <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg border border-orange-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-orange-700">Unplanned</p>
-              <p className="text-3xl font-bold text-orange-600 mt-2">
-                {formatMoney(unplannedExpenses, settings.currency, settings.locale)}
+              <p className="text-sm font-medium text-orange-700">Unplanned Expenses</p>
+              <p className={`text-3xl font-bold mt-2 ${derivedUnplannedExpense > 0 ? 'text-orange-600' : 'text-green-600'}`}>
+                {Math.abs(derivedUnplannedExpense) < 0.01 ? formatMoney(0, settings.currency, settings.locale) : `${derivedUnplannedExpense < 0 ? '+' : ''}${formatMoney(Math.abs(derivedUnplannedExpense), settings.currency, settings.locale)}`}
               </p>
-              <p className="text-xs text-orange-600 mt-1">Manual expenses</p>
+              <p className="text-xs text-orange-600 mt-1">Derived from balances</p>
             </div>
             <div className="text-3xl">🎲</div>
           </div>
         </div>
+
+        <div className="bg-gradient-to-br from-sky-50 to-sky-100 rounded-lg border border-sky-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-sky-700">Settled Payments</p>
+              <p className="text-3xl font-bold text-sky-900 mt-2">
+                {formatMoney(settledPlannedOutflows, settings.currency, settings.locale)}
+              </p>
+              <p className="text-xs text-sky-600 mt-1">Planned & Paid</p>
+            </div>
+            <div className="text-3xl">💸</div>
+          </div>
+        </div>
       </div>
 
-      <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg border border-slate-200 p-6 shadow-sm">
-        <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">📅 Monthly Roll-Forward</h2>
-          <Link href="/dashboard/plan" className="text-sm font-medium text-slate-600 hover:text-slate-900 inline-flex items-center gap-1">View Plan <span>→</span></Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg p-4 border border-slate-100">
-            <p className="text-sm font-medium text-slate-600">Opening Balance</p>
-            <p className="text-2xl font-bold text-slate-900 mt-2">{formatMoney(totalMonthlyOpening, settings.currency, settings.locale)}</p>
-            <p className="text-xs text-slate-500 mt-1">Dashboard accounts</p>
-          </div>
-          <div className="bg-white rounded-lg p-4 border border-slate-100">
-            <p className="text-sm font-medium text-slate-600">Projected Closing</p>
-            <p className={`text-2xl font-bold mt-2 ${totalMonthlyClosing < 0 ? 'text-red-600' : 'text-emerald-600'}`}>
-              {formatMoney(totalMonthlyClosing, settings.currency, settings.locale)}
-            </p>
-            <p className="text-xs text-slate-500 mt-1">After planned outflows</p>
-          </div>
-        </div>
-        <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded text-xs text-blue-700">
-          ℹ️ Income is rolled forward automatically. Outflows are deducted.
-        </div>
-      </div>
+
 
       {/* Planned vs Budgets */}
       {plannedThisMonth.length > 0 && (

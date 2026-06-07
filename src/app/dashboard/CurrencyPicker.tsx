@@ -33,9 +33,9 @@ export default function CurrencyPicker() {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs text-slate-500 dark:text-slate-400">Currency</span>
+      <span className="text-xs text-muted dark:text-muted">Currency</span>
       <select
-        className="border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900"
+        className="border border-border dark:border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-foreground dark:text-slate-200 bg-background dark:bg-slate-900"
         value={settings?.currency ?? 'USD'}
         onChange={e => handleChange(e.target.value)}
         disabled={saving}
